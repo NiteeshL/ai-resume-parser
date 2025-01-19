@@ -1,0 +1,14 @@
+python==3.10.11
+requests
+pandas
+openpyxl
+pdfplumber
+spacy
+pydrive
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+google-generativeai
+pydrive2
+Flask

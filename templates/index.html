@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://i.pinimg.com/736x/a8/b7/bd/a8b7bd74a42b52fc75a31c5736727918.jpg") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        header, footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        form {
+            background: rgba(68, 68, 68, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resume Processor</h1>
+    </header>
+    <form action="/process" method="POST">
+        <h1>Google Drive Resume Processor</h1>
+        <label for="folder_id">Enter Google Drive Folder ID:</label>
+        <input type="text" id="folder_id" name="folder_id" required>
+        <button type="submit">Process Resumes</button>
+    </form>
+    <footer>
+        <p>&copy; 2023 Resume Processor. All rights reserved.</p>
+    </footer>
+</body>
+</html>
