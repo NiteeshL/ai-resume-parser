@@ -11,3 +11,5 @@ google-api-python-client
 google-generativeai
 pydrive2
 Flask
+python-dotenv
+
