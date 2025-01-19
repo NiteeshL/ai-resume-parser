@@ -1,4 +1,4 @@
-![ai-resume-parser](https://socialify.git.ci/NiteeshL/ai-resume-parser/image?description=1&language=1&name=1&owner=1&theme=Light)
+![ai-resume-parser](https://socialify.git.ci/NiteeshL/ai-resume-parser/image?custom_description=Resume+extraction+and+evaluation+tool+powered+by+Generative+AI%2C+which+processes+resumes+to+extract+key+information+and+rank+candidates+based+on+relevance+and+role+fit.+It+leverages+AI+models+to+ensure+high+accuracy+and+scalability+in+batch+processing.&description=1&language=1&name=1&owner=1&theme=Light)
 # Resume Processor
 
 Resume Processor is a Python-based application that extracts and processes information from resumes placed inside a GOOGLE DRIVE folder to reduce the hassle 😉. It uses the Gemini API to extract key details and calculate experience scores based on keyword matches.
@@ -6,6 +6,7 @@ Alternatively, it can also be used to process resumes present in the machine.
 
 ## Features
 
+- Google drive integration
 - Extracts text from PDF resumes
 - Queries the Gemini API to extract key details from resumes
 - Calculates experience scores based on keyword matches
