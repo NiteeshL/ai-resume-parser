@@ -30,8 +30,8 @@ Alternatively, it can also be used to process resumes present in the machine.
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/NiteeshL/resume-processor.git
-    cd resume-processor
+    git clone https://github.com/NiteeshL/ai-resume-parser.git
+    cd ai-resume-parser
     ```
 
 2. Create and activate a virtual environment:
@@ -68,7 +68,7 @@ Alternatively, it can also be used to process resumes present in the machine.
 
 3. Enter the Google Drive Folder ID containing the resumes in the input field and click "Process Resumes". The application can process a large number of resumes efficiently.
 
-4. The application will process the resumes and save the extracted data to `raw_extracted_resumes_with_scores.xlsx`.
+4. The application will process the resumes and save the extracted data to `processed_resumes_with_scores.xlsx`.
 
 ## Images and videos
 https://github.com/user-attachments/assets/6071ff1b-3151-426d-9088-c241bd0ed499
