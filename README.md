@@ -7,10 +7,11 @@ Alternatively, it can also be used to process resumes present in the machine.
 ## Features
 
 - Google drive integration (drive folder doesn't have to be publicly accessible 😉)
+- Batch Processing of multiple resumes with timely output
 - Extracts text from PDF resumes
 - Queries the Gemini API to extract key details from resumes
 - Calculates experience scores based on keyword matches
-- Provides a web interface for uploading and processing resumes
+- Provides a web interface for processing resumes
 
 ## Project Structure
 
