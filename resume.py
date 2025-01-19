@@ -7,7 +7,7 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDN0OmUBxLwpq4PzxVWepNcW5lAFvjcEpQ")          #replace with your gemini api key
+genai.configure(api_key="your_api_key")          #replace with your gemini api key
 
 # Initialize Flask app
 app = Flask(__name__)
