@@ -6,12 +6,13 @@ from flask import Flask, render_template, request, redirect, url_for
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from dotenv import load_dotenv
+import json
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Configure Gemini API using the API key from environment variables
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))      #replace with your gemini api key
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))  # Replace with your Gemini API key
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -64,8 +65,6 @@ def extract_text_from_pdf(pdf_path):
     return full_text
 
 # Function to query the Gemini API
-import json
-
 def query_gemini_api(text):
     prompt = (
         "Please extract the following details from the resume text below and return them as a JSON object:\n"
@@ -97,16 +96,15 @@ def query_gemini_api(text):
     model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(prompt)
 
+    # Log the API response
+    print(f"Gemini API Response:\n{response.text}\n")
+
     # Clean up the response and parse as JSON
     try:
-        # Remove code block markers if present
         cleaned_response = response.text.strip().strip('```json').strip('```')
-        # Parse JSON string into Python dictionary
         return json.loads(cleaned_response)
     except json.JSONDecodeError as e:
         raise ValueError(f"Failed to parse Gemini API response: {response.text}") from e
-
-
 
 # Function to calculate experience scores based on keyword matches
 def calculate_experience_score(text, category="gen_ai"):
@@ -115,27 +113,10 @@ def calculate_experience_score(text, category="gen_ai"):
             "GPT", "RAG", "Generative AI", "Agentic", "Evals", "Large Language Models", "LLMs", "ChatGPT",
             "BERT", "T5", "Transformer models", "OpenAI", "Stable Diffusion", "DALL-E", "MidJourney", "Claude",
             "Anthropic", "Hugging Face", "LangChain", "AutoGPT", "BabyAGI", "Text generation", "Image generation",
-            "Prompt engineering", "Diffusion models", "Foundation models", "Semantic search", "Vector databases",
-            "Embeddings", "Retrieval-augmented generation", "Instruction-tuned models", "Generative pretrained transformer",
-            "Few-shot learning", "Zero-shot learning", "Tokenization", "Whisper", "Image-to-text models",
-            "RLHF", "Reinforcement Learning with Human Feedback", "Fine-tuning", "Open-source models",
-            "Bloom", "OPT", "Megatron", "DeepSpeed", "LoRA", "Parameter-efficient fine-tuning",
-            "NeMo", "Mistral", "Falcon", "Vicuna", "Baize", "FLAN-T5", "LLama", "ALBERT", "XLNet",
         ],
         "ai_ml": [
             "machine learning", "deep learning", "neural networks", "AI", "Artificial Intelligence",
             "Reinforcement learning", "Supervised learning", "Unsupervised learning", "Self-supervised learning",
-            "Feature engineering", "PyTorch", "TensorFlow", "Scikit-learn", "Keras", "Explainable AI", "Bias detection",
-            "Hyperparameter tuning", "Gradient boosting", "Random forest", "Support vector machines", "XGBoost",
-            "LightGBM", "CatBoost", "Convolutional neural networks", "Recurrent neural networks",
-            "Long short-term memory", "Transformers", "GANs", "Generative adversarial networks", "Autoencoders",
-            "Decision trees", "Clustering", "K-means", "PCA", "Principal component analysis", "Dimensionality reduction",
-            "Bayesian networks", "Naive Bayes", "Logistic regression", "Linear regression", "Gradient descent",
-            "Backpropagation", "Activation functions", "Dropout", "Batch normalization", "Attention mechanisms",
-            "Graph neural networks", "GNNs", "Natural language processing", "NLP", "Speech recognition",
-            "Computer vision", "Image classification", "Object detection", "YOLO", "ResNet", "EfficientNet",
-            "Time series analysis", "Sequence modeling", "Markov chains", "Anomaly detection", "Recommendation systems",
-            "Predictive analytics", "Knowledge graphs", "Data preprocessing", "Data augmentation", "Synthetic data",
         ]
     }
 
@@ -173,10 +154,12 @@ def process_batch(resume_paths):
 def save_raw_data_to_excel(data, output_file):
     df = pd.DataFrame(data)
     df.to_excel(output_file, index=False)
+    print(f"Raw data saved to: {output_file}")
 
 def save_processed_data_to_excel(data, output_file):
     df = pd.DataFrame(data)
     df.to_excel(output_file, index=False)
+    print(f"Processed data saved to: {output_file}")
 
 # Web interface for user to enter Google Drive Folder ID
 @app.route('/')
@@ -185,7 +168,7 @@ def index():
 
 @app.route('/process', methods=['POST'])
 def process():
-    folder_id = request.form['folder_id']                   # Get the folder ID from the google drive folder's link (see README for more clarity)              
+    folder_id = request.form['folder_id']
     download_folder = "resumes"
     raw_output_file = "raw_extracted_resumes.xlsx"
     processed_output_file = "processed_resumes_with_scores.xlsx"
