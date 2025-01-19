@@ -16,7 +16,7 @@ Alternatively, it can also be used to process resumes present in the machine.
 ## Project Structure
 
 ```
-/c:/Users/mleel/Downloads/Projects/ai-resume-parser/
+/c:/Users/niteesh/Downloads/Projects/ai-resume-parser/
 ├── templates/
 │   └── index.html
 ├── credentials.json
