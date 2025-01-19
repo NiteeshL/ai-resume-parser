@@ -71,7 +71,8 @@ Alternatively, it can also be used to process resumes present in the machine.
 4. The application will process the resumes and save the extracted data to `raw_extracted_resumes_with_scores.xlsx`.
 
 ## Images and videos
-[Watch the Demo Video](https://github.com/NiteeshL/ai-resume-parser/blob/main/output.mp4)
+https://github.com/user-attachments/assets/6071ff1b-3151-426d-9088-c241bd0ed499
+
 
 ![web page](https://github.com/NiteeshL/ai-resume-parser/blob/main/image.png)
 
