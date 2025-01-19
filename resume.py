@@ -5,9 +5,13 @@ import google.generativeai as genai
 from flask import Flask, render_template, request, redirect, url_for
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
+from dotenv import load_dotenv
 
-# Configure Gemini API
-genai.configure(api_key="your_api_key")          #replace with your gemini api key
+# Load environment variables from .env file
+load_dotenv()
+
+# Configure Gemini API using the API key from environment variables
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))      #replace with your gemini api key
 
 # Initialize Flask app
 app = Flask(__name__)

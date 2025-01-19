@@ -6,7 +6,7 @@ Alternatively, it can also be used to process resumes present in the machine.
 
 ## Features
 
-- Google drive integration
+- Google drive integration (drive folder doesn't have to be publicly accessible 😉)
 - Extracts text from PDF resumes
 - Queries the Gemini API to extract key details from resumes
 - Calculates experience scores based on keyword matches
@@ -49,9 +49,9 @@ Alternatively, it can also be used to process resumes present in the machine.
 5. Create a Gemini API key:
     - Sign up for an account at [Gemini](https://gemini.com) if you don't have one.
     - Navigate to the API section and create a new API key.
-    - Copy the API key and replace the placeholder in `resume.py`:
-        ```python
-        genai.configure(api_key="YOUR_GEMINI_API_KEY")
+    - Create a `.env` file in the project root directory and add your Gemini API key:
+        ```dotenv
+        GEMINI_API_KEY=your_actual_api_key_here
         ```
 
 ## Usage
