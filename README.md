@@ -15,12 +15,14 @@ Alternatively, it can also be used to process resumes present in the machine.
 ## Project Structure
 
 ```
-/C:/Users/niteesh/Desktop/New folder/
+/c:/Users/mleel/Downloads/Projects/ai-resume-parser/
 ├── templates/
 │   └── index.html
+├── credentials.json
 ├── resume.py
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── .env
 ```
 
 ## Installation
